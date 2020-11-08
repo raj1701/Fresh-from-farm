@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/548c498c46.js" crossorigin="anonymous"></script>
+   
+
+    <style>
+        .top{
+            text-align: center;
+            background-color:#ffd5cd ;
+            height: 150px;
+            padding-top: 50px;
+        }
+
+        .my_cards{
+            
+            margin: 100px 0px 100px 100px;
+            background-color: #f6f5f1;
+        }
+        .card-button:hover{
+            color: black;
+            background-color: white;
+        }
+        .card-images{
+            height: 300px;
+            border-radius: 200px;
+            margin-top: 10px;
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="top" >
+        <h2 style="padding: top 50px; font-family: 'Monteserrat', sans-serif;">
+            You can buy the following {{categories.item_name}}
+        </h2>
+    </div>
+
+    <div class="row" id="groceries">
+        <!-- cards -->
+            {% for grocery in groceries %}
+                    <div class="card col-sm-3 my_cards" >
+                        <img class="card-img-top card-images" src="/static/item_display/img/{{grocery.choice_text}}.jpg" alt="{{grocery.choice_text}}" />
+                        <div class="card-body">
+                        <h3 class="card-title" style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif; ">{{grocery.choice_text}}<br><br></h3>
+                        <p class="card-text" style="font-size:1.2rem;">
+                            Price is <em>Rs {{grocery.price}}</em>
+                            <a href="#" class="btn btn-success card-button" style="margin-left: 80px;">Buy Now</a>
+                        </p>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+
+</body>
+</html>
